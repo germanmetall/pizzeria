@@ -180,7 +180,7 @@ async function order(){
 		address = formAddress.value.value;
 	console.log(phone, address);
 	if(!phone || !address) return;
-	await fetch(`${location.protocol}//${location.hostname}:3000/addOrder`, {
+	await fetch(`https://pizzeria-api.onrender.com/addOrder`, {
 		method: "POST",
 		headers: {
 			"Content-type": "application/json"
@@ -201,7 +201,7 @@ watchEffect(() => {
 })
 
 onMounted(async () => {
-	let resp = await fetch(`${location.protocol}//${location.hostname}:3000/getGoods`);
+	let resp = await fetch(`https://pizzeria-api.onrender.com/getGoods`);
 	try{
 		let body = await resp.json();
 		console.log(body);
@@ -254,7 +254,8 @@ body{
 }
 #__nuxt{
 	min-height: 300vh;
-	background-image: url('~/assets/Background.jpg');
+	//background-image: url('~/assets/Background.jpg');
+	background-image: url('~/assets/bg1.jpg');
 }
 #page{
 	margin: 0 10vw;
