@@ -94,7 +94,8 @@ useHead({
 			name: 'description',
 			content: 'Pizza delivery'
 		}
-	]
+	],
+  	link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
 });
 
 // refs and groups
@@ -255,11 +256,11 @@ body{
 #__nuxt{
 	min-height: 300vh;
 	//background-image: url('~/assets/Background.jpg');
-	background-image: url('~/assets/bg1.jpg');
+	background-image: url('~/assets/bg3.jpeg');
 }
 #page{
 	margin: 0 10vw;
-	background-color: #d9d9d9cc;
+	background-color: #d9d9d9a0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
