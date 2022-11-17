@@ -1,5 +1,6 @@
 <template>
     <header class="header">
+        <img src="../favicon.png"/>
         <div class="header__text">Pizza Neapolitana</div>
     </header>
 </template>
@@ -16,6 +17,11 @@
         font-size: 64px;
         font-family: "Pan-Pizza";
         margin: 0 auto;
+    }
+    img{
+        position: absolute;
+        height: 70px;
+        padding: 12px;
     }
 }
 </style>
