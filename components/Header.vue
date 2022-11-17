@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <img src="../favicon.png"/>
+        <img src="@/public/favicon.png"/>
         <div class="header__text">Pizza Neapolitana</div>
     </header>
 </template>
