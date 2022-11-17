@@ -24,4 +24,19 @@
         padding: 12px;
     }
 }
+@media all and (max-width: 1050px){
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 12px;
+        img{
+            position: relative;
+            padding: 0;
+        }
+        &__text{
+            margin: 0;
+        }
+    }
+}
 </style>
