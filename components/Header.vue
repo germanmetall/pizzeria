@@ -29,10 +29,13 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
         padding: 12px;
+        background-color: #e9c37cd0;
         img{
             position: relative;
             padding: 0;
+            height: 140px;
         }
         &__text{
             margin: 0;

@@ -572,7 +572,10 @@ body{
 		}
 	}
 }
-@media all and (max-width: 1150px){
+@media all and (max-width: 1050px){
+	#pizzaBox{
+		display: none;
+	}
 	#page{
 		margin: 0 !important;
 	}
