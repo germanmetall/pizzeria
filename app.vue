@@ -261,7 +261,7 @@ body{
 	//background-image: url('~/assets/bg3.jpeg');
 }
 #bgImg{
-	position: absolute;
+	position: fixed;
 	z-index: -1;
 	left: 0;
 	top: 0;
