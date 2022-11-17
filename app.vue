@@ -1,4 +1,5 @@
 <template>
+	<img src="@/assets/bg3.jpeg" id="bgImg"/>
 	<title>Pizza Neapolitana</title>
 
 	<Header></Header>
@@ -249,6 +250,7 @@ body{
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	color: #fefefe;
 }
 *{
 	box-sizing: border-box;
@@ -256,11 +258,20 @@ body{
 #__nuxt{
 	min-height: 300vh;
 	//background-image: url('~/assets/Background.jpg');
-	background-image: url('~/assets/bg3.jpeg');
+	//background-image: url('~/assets/bg3.jpeg');
+}
+#bgImg{
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	filter: brightness(.5);
 }
 #page{
 	margin: 0 10vw;
-	background-color: #d9d9d9a0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
