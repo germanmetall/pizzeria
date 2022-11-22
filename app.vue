@@ -573,7 +573,10 @@ body{
 	}
 }
 @media all and (max-width: 1050px){
-	#pizzaBox{
+	#__nuxt{
+		min-height: unset !important;
+	}
+	#pizzaBoxContainer{
 		display: none;
 	}
 	#page{
@@ -583,7 +586,7 @@ body{
 		display: none;
 	}
 	.slide{
-		height: unset;
+		height: unset !important;
 	}
 	#slide{
 		&-menu{
@@ -712,6 +715,9 @@ body{
 			&--expanded{
 				height: 128px !important;
 			}
+		}
+		&s{
+			max-height: 80vh !important;
 		}
 	}
 }

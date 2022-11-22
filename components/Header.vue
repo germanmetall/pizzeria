@@ -10,7 +10,7 @@
     position: relative;
     z-index: 100;
     width: 100%;
-    background-color: #e9c37c;
+    background-color: #e9c37c20;
     &__text{
         text-align: center;
         color: #fb4052;
@@ -31,7 +31,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 12px;
-        background-color: #e9c37cd0;
+        background-color: #e9c37c20;
         img{
             position: relative;
             padding: 0;
