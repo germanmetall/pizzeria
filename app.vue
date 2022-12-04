@@ -315,7 +315,7 @@ body{
 		height: 100%;
 		flex-direction: column;
 		justify-content: center;
-		font-size: 64px;
+		font-size: 56px;
 		gap: 12px 64px;
 	}
 	&-menu{
@@ -502,7 +502,7 @@ body{
 	#slide-reasons{
 		grid-template-columns: auto 420px;
 		grid-template-rows: 128px auto repeat(2, 210px);
-		font-size: 48px;
+		font-size: 40px;
 	}
 	#pizzaBox{
 		&Container{
@@ -532,7 +532,7 @@ body{
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		font-size: 36px;
+		font-size: 32px;
 		height: 860px;
 		gap: 24px;
 	}
@@ -574,6 +574,9 @@ body{
 @media all and (max-width: 1050px){
 	#__nuxt{
 		min-height: unset !important;
+	}
+	#slide-reasons{
+		font-size: 20px;
 	}
 	#pizzaBoxContainer{
 		display: none;
