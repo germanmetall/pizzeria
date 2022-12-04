@@ -13,13 +13,10 @@
 
 			<section class="slide" id="slide-reasons" ref="slide1">
 				<div class="reason">
-					У нас найкраща піца!
+					Замовити нашу піцу ви можете за телефоном <a id="tel" href="tel:+380634784875">063 478 48 75</a>
 				</div>
 				<div class="reason">
-					У нас найкраща піца!
-				</div>
-				<div class="reason">
-					У нас найкраща піца!
+					Час прийому замовлень 11:00-18:00. Суббота, неділя - вихідні.
 				</div>
 
 				<div id="pizzaBoxContainer">
@@ -233,6 +230,9 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
+#tel{
+	color: lighten(#fb4052, 30%);
+}
 @font-face {
 	font-family: "Pan-Pizza";
 	src: url("~/assets/panpizza.ttf");
@@ -310,14 +310,13 @@ body{
 	&-reasons{
 		display: grid;
 		grid-template-columns: auto 512px;
-		grid-template-rows: 128px repeat(2, 256px);
 		font-family: "Playfair-Display", "Montserrat";
 		padding: calc(50vh - (70px / 2) - (256px + 64px)) 64px;
 		height: 100%;
 		flex-direction: column;
 		justify-content: center;
 		font-size: 64px;
-		gap: 0 64px;
+		gap: 12px 64px;
 	}
 	&-menu{
 		display: grid;
