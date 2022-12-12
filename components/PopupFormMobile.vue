@@ -14,14 +14,22 @@
             <input class="form__input" type="tel" ref="formPhone" placeholder="Телефон" title="Телефон"/>
             <input class="form__input" type="text" ref="formAddress" placeholder="Адреса" title="Адреса"/>
             <input class="form__input" type="text" ref="formComments" placeholder="А може щось ще?.." title="Коментарі"/>
-            <span class="mobile__order" @click="$emit('order'); togglePopup('FormMobile')">Замовити</span>
+            <span class="mobile__order" @click="emitOrder(); togglePopup('FormMobile')">Замовити</span>
         </div>
     </div>
 </template>
 
 <script setup>
 let props = defineProps(['price']);
-let emits = defineEmits(['order'])
+let emits = defineEmits(['order']);
+
+let formPhone = ref(null),
+    formAddress = ref(null),
+    formComments = ref(null);
+
+function emitOrder(){
+    emits('order', formPhone.value.value, formAddress.value.value, formComments.value.value);
+}
 </script>
 
 <style scoped lang="scss">

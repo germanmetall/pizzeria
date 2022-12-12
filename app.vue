@@ -60,7 +60,7 @@
 						<input class="form__input" type="tel" ref="formPhone" placeholder="Телефон" title="Телефон"/>
 						<input class="form__input" type="text" ref="formAddress" placeholder="Адреса" title="Адреса"/>
 						<input class="form__input" type="text" ref="formComments" placeholder="А може щось ще?.." title="Коментарі"/>
-						<span class="mobile__order" @click="order">Замовити</span>
+						<span class="mobile__order" @click="order(null,null,null)">Замовити</span>
 					</div>
 
 					<div class="form__mobile">
@@ -113,9 +113,9 @@ let currSlide = ref(0),
 	trades = ref([]),
 	orders = ref([]),
 	price = ref(0),
-	formPhone = ref(""),
-	formAddress = ref(""),
-	formComments = ref("");
+	formPhone = ref(null),
+	formAddress = ref(null),
+	formComments = ref(null);
 
 function goToSlide(num){
 	currSlide.value = num;
@@ -169,17 +169,21 @@ function addTrade(trade){
 	if(!orders.value.includes(trade)) {
 		orders.value.push(trade);
 		orders.value.find(el => el.id == trade.id).amount = 1;
+		togglePopup('ChoosePizza');
 	}
-	else orders.value.find(el => el.id == id).amount++;
-	togglePopup('ChoosePizza');
+	else {
+		alert("Ви вже вибрали цю піцу!");
+	}
 }
 
-async function order(){
-	let phone = formPhone.value.value,
-		address = formAddress.value.value;
-	console.log(phone, address);
+async function order(mobilePhone=null, mobileAddress=null, mobileComments=null){
+	let phone = mobilePhone || formPhone.value.value,
+		address = mobileAddress || formAddress.value.value,
+		comments = mobileComments || formComments.value.value,
+		isOk = false;
+	console.log(phone, address, comments);
 	if(!phone || !address) return;
-	await fetch(`https://pizzeria-api.onrender.com/addOrder`, {
+	let resp = await fetch(`https://pizzeria-api.onrender.com/addOrder`, {
 		method: "POST",
 		headers: {
 			"Content-type": "application/json"
@@ -187,10 +191,12 @@ async function order(){
 		body: JSON.stringify({
 			phone,
 			address,
-			comments: formComments.value.value,
+			comments: comments,
 			cart: orders.value
 		})
-	}); 
+	});
+	let body = await resp.json();
+	console.log(body);
 }
 
 watchEffect(() => {
