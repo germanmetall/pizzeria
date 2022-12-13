@@ -197,6 +197,8 @@ async function order(mobilePhone=null, mobileAddress=null, mobileComments=null){
 	});
 	let body = await resp.json();
 	console.log(body);
+	if(body=='ok') alert("Ваше замовлення прийнято!");
+	else alert("Сталася помилка, спробуйте повторити пізніше");
 }
 
 watchEffect(() => {
