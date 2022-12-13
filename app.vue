@@ -329,7 +329,7 @@ body{
 	&-menu{
 		display: grid;
 		grid-template-columns: auto auto;
-		grid-template-rows: 64px auto;
+		grid-template-rows: auto auto;
 		gap: 32px;
 		padding: 10vh 32px;
 	}
@@ -357,7 +357,7 @@ body{
 	&--animated{}
 }
 .categories{
-	grid-column: 2;
+	grid-column: 1 / span 2;
 	display: flex;
 	flex-direction: row;
 	gap: 32px;
