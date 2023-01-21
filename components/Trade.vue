@@ -62,4 +62,13 @@ let toggleMobileImg = ref(false);
 		}
 	}
 }
+
+@media screen and (max-width: 1050px) {
+	.trade{
+		&__img{
+			aspect-ratio: 6/1;
+			height: unset;
+		}
+	}
+}
 </style>

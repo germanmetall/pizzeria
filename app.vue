@@ -658,15 +658,13 @@ body{
 		}
 		&__img{
 			width: 100% !important;
-			height: 128px !important;
 			order: 3;
     		border-radius: 0 0 32px 32px !important;
 			transition: .5s;
 			margin: 0;
 			&--expanded{
+				aspect-ratio: 1/1 !important;
     			border-radius: 32px !important;
-				height: 256px !important;
-				margin: 0 24px 24px 24px;
 			}
 		}
 	}
@@ -721,9 +719,8 @@ body{
 			font-size: 16px !important;
 		}
 		&__img{
-			height: 64px !important;
 			&--expanded{
-				height: 128px !important;
+				aspect-ratio: 1/1 !important;
 			}
 		}
 		&s{
