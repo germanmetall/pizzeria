@@ -5,11 +5,16 @@
         <span class="trade__size" v-if="props.trade.size">({{props.trade.size}})</span>
         <span class="trade__ingredients">{{props.trade.description}}</span>
         <span class="trade__price">{{props.trade.price}}</span>
+
+		<div class="trade__add" @click.stop="$emit('addTrade')">
+			Додати до кошика
+		</div>
     </div>
 </template>
 
 <script setup>
-const props = defineProps(['trade']);
+const props = defineProps(['trade']),
+    emit = defineEmits(['addTrade']);
 let toggleMobileImg = ref(false);
 </script>
 
@@ -24,6 +29,7 @@ let toggleMobileImg = ref(false);
 	gap: 12px 6px;
 	color: #fb4052;
 	font-family: "Montserrat";
+	cursor: pointer;
 	&__img{
 		width: 64px;
 		height: 64px;
@@ -61,6 +67,9 @@ let toggleMobileImg = ref(false);
 			content: " грн";
 		}
 	}
+	&__add{
+		display: none;
+	}
 }
 
 @media screen and (max-width: 1050px) {
@@ -68,6 +77,18 @@ let toggleMobileImg = ref(false);
 		&__img{
 			aspect-ratio: 6/1;
 			height: unset;
+		}
+		&__add{
+			display: block;
+			order: 2;
+			margin: auto;
+			padding: 16px;
+			background-color: #27d70260;
+			border-radius: 12px;
+			transition: .5s;
+			&:hover{
+				background-color: #27d702;
+			}
 		}
 	}
 }

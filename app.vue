@@ -35,7 +35,7 @@
 				</div>
 
 				<div class="trades" @wheel.stop>
-					<Trade v-for="trade of trades" :trade="trade" :key="trade.id" @mouseenter="onMouseEnterTrade(trade.photo)" @mouseleave="onMouseLeaveTrade"></Trade>
+					<Trade v-for="trade of trades" :trade="trade" :key="trade.id" @mouseenter="onMouseEnterTrade(trade.photo)" @mouseleave="onMouseLeaveTrade" @click="addTrade(trade, false)" @addTrade="addTrade(trade)"></Trade>
 				</div>
 			</section>
 
@@ -43,10 +43,6 @@
 				<div class="form">
 					<div class="form__left" @wheel.stop>
 						<Order v-for="order of orders" :order="order" :key="order.id" @delete="onDelete" @changeQuantity="onChangeQuantity"></Order>
-						<div id="maybeMore" @click="togglePopup('ChoosePizza')">
-							<div id="maybeMore__img"></div>
-							<div id="maybeMore__name">Додати ще</div>
-						</div>
 					</div>
 
 					<div class="form__divider"></div>
@@ -141,12 +137,9 @@ function applyFilter(categoryName){
 
 	if(categoryName === 'Все') trades.value = initTrades.value;
 	else trades.value = initTrades.value.filter(el => el.categories.includes(categoryName));
-
-	console.log(trades.value, initTrades.value);
 }
 
 function onMouseEnterTrade(image){
-	console.log(image);
 	pizzaImg.value.src = image;
 	pizzaImg.value.classList.add("active");
 }
@@ -165,11 +158,13 @@ function onChangeQuantity(quantity, id){
 	orders.value.find(el => el.id == id).amount = quantity.value;
 }
 
-function addTrade(trade){
+function addTrade(trade, shouldAdd=true){
+	if(!shouldAdd && window.innerWidth <= 1050) return;
+
 	if(!orders.value.includes(trade)) {
 		orders.value.push(trade);
 		orders.value.find(el => el.id == trade.id).amount = 1;
-		togglePopup('ChoosePizza');
+		alert("Піца додана до кошика!");
 	}
 	else {
 		alert("Ви вже вибрали цю піцу!");
@@ -181,7 +176,6 @@ async function order(mobilePhone=null, mobileAddress=null, mobileComments=null){
 		address = mobileAddress || formAddress.value.value,
 		comments = mobileComments || formComments.value.value,
 		isOk = false;
-	console.log(phone, address, comments);
 	if(!phone || !address) return;
 	let resp = await fetch(`https://pizzeria-api.onrender.com/addOrder`, {
 		method: "POST",
@@ -196,7 +190,6 @@ async function order(mobilePhone=null, mobileAddress=null, mobileComments=null){
 		})
 	});
 	let body = await resp.json();
-	console.log(body);
 	if(body=='ok') alert("Ваше замовлення прийнято!");
 	else alert("Сталася помилка, спробуйте повторити пізніше");
 }
@@ -211,7 +204,6 @@ onMounted(async () => {
 	let resp = await fetch(`https://pizzeria-api.onrender.com/getGoods`);
 	try{
 		let body = await resp.json();
-		console.log(body);
 		initTrades.value = body;
 		trades.value = initTrades.value;
 		categories.value = new Set();
